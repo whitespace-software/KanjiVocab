@@ -17,6 +17,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var lblKanji: UILabel!
     @IBOutlet weak var btnHiragana: UIButton!
     @IBOutlet weak var btnEnglish: UIButton!
+    @IBOutlet weak var btnRevise: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +38,23 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         EditVC.loadVC( sb: self.storyboard!, nc: self.navigationController! )
     }
     
+    @IBAction func clickRevise(_ sender: Any) {
+        if let t = triplet {
+            t.toggleRevise()
+            showCurrent()
+            Vocab.sharedInstance.save()
+        }
+    }
+    
     func showCurrent() {
         if let t = triplet {
             lblKanji.text = t.kanji
             btnHiragana.setTitle("Hiragana", for: .normal)
             btnEnglish.setTitle("English", for: .normal)
+            //lblKanji.textColor = UIFuncs.getTextColor( revise: t.isRevise() )
+            lblKanji.backgroundColor = UIFuncs.getBackgroundColor( revise: t.isRevise() )
+
+            btnRevise.setTitle( t.isRevise() ? "Clear Revise" : "Set Revise", for: .normal )
         }
     }
     

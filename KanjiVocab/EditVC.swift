@@ -18,9 +18,10 @@ class EditVC: UIViewController, UITableViewDataSource {
         let t = Vocab.sharedInstance.triplets.reversed()[ indexPath.row ]
         // cell.detailTextLabel?.text = t.hiragana + " " + t.english
         cell.textLabel?.text = t.kanji + " " + t.hiragana + " " + t.english
+        // cell.textLabel?.textColor = UIFuncs.getTextColor( revise: t.isRevise() )
+        cell.textLabel?.backgroundColor = UIFuncs.getBackgroundColor( revise: t.isRevise() )
         return cell
     }
-
 
     @IBOutlet weak var txtKanji: UITextField!
     @IBOutlet weak var txtHiragana: UITextField!

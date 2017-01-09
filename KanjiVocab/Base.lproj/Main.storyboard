@@ -50,6 +50,14 @@
                                     <action selector="clickNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3gG-gz-J4e"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j55-MA-BHk">
+                                <rect key="frame" x="16" y="266" width="343" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Revise"/>
+                                <connections>
+                                    <action selector="clickRevise:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RxW-yj-Qr6"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0r-mg-Efz">
                                 <rect key="frame" x="16" y="160" width="343" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -68,12 +76,15 @@
                             <constraint firstItem="HZY-bX-4HR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Mbp-4y-hrX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gIH-ig-bZE" secondAttribute="trailing" id="NHz-BS-LqU"/>
                             <constraint firstItem="p0r-mg-Efz" firstAttribute="top" secondItem="w66-hk-UFb" secondAttribute="bottom" constant="12" id="NVJ-kj-TaY"/>
+                            <constraint firstItem="j55-MA-BHk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="NX3-3T-ZOB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p0r-mg-Efz" secondAttribute="trailing" id="O16-Kf-sYY"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gIH-ig-bZE" secondAttribute="bottom" constant="12" id="PbK-qM-JhO"/>
                             <constraint firstItem="w66-hk-UFb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="12" id="VVw-w2-JV5"/>
                             <constraint firstItem="HZY-bX-4HR" firstAttribute="top" secondItem="p0r-mg-Efz" secondAttribute="bottom" constant="12" id="WUG-ES-128"/>
                             <constraint firstAttribute="trailingMargin" secondItem="w66-hk-UFb" secondAttribute="trailing" id="eVJ-6F-5IF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="j55-MA-BHk" secondAttribute="trailing" id="fJe-2A-9aZ"/>
                             <constraint firstItem="uTO-zN-sMo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hV2-eh-KOJ"/>
+                            <constraint firstItem="j55-MA-BHk" firstAttribute="top" secondItem="HZY-bX-4HR" secondAttribute="bottom" constant="12" id="im1-Q0-gSV"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uTO-zN-sMo" secondAttribute="bottom" constant="12" id="mSv-Dw-4Oq"/>
                         </constraints>
                     </view>
@@ -81,6 +92,7 @@
                     <connections>
                         <outlet property="btnEnglish" destination="HZY-bX-4HR" id="kAm-Oi-mKe"/>
                         <outlet property="btnHiragana" destination="p0r-mg-Efz" id="NHp-vc-L2v"/>
+                        <outlet property="btnRevise" destination="j55-MA-BHk" id="yMI-NP-n5X"/>
                         <outlet property="lblKanji" destination="w66-hk-UFb" id="xJZ-RC-0en"/>
                     </connections>
                 </viewController>
@@ -133,18 +145,18 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SXe-rL-s6E" id="Hfe-r7-WiO">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nr7-sp-oi2">
-                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                                    <rect key="frame" x="15" y="11" width="34" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UPM-5L-9it">
-                                                    <rect key="frame" x="284" y="12" width="44" height="20.5"/>
+                                                    <rect key="frame" x="284" y="11" width="44" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>

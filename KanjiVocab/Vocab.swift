@@ -13,14 +13,26 @@ public class Triplet
     var kanji : String
     var hiragana : String
     var english : String
-    init(kanji : String,hiragana : String,english : String)
+    var revise : String
+    
+    init(kanji : String,hiragana : String,english : String, revise : String = "")
     {
         self.kanji = kanji
         self.hiragana = hiragana
         self.english = english
+        self.revise = revise
     }
     func makeString() -> String {
-        return [ kanji, hiragana, english ].joined(separator: "|")
+        return [ kanji, hiragana, english, revise ].joined(separator: "|")
+    }
+    func isRevise() -> Bool {
+        return revise == "Y"
+    }
+    func setRevise( onoff : Bool ) {
+        revise = onoff ? "Y" : ""
+    }
+    func toggleRevise() {
+        setRevise(onoff: !isRevise() )
     }
     static func parse( str : String ) -> Triplet?
     {
@@ -34,7 +46,8 @@ public class Triplet
         if kanji == "" || hiragana == "" || english == "" {
             return nil
         }
-        return Triplet(kanji: kanji, hiragana: hiragana, english: english )
+        let revise = sgmts.count < 4 ? "" : sgmts[3].trimmingCharacters(in: .whitespaces)
+        return Triplet(kanji: kanji, hiragana: hiragana, english: english, revise : revise )
     }
 }
 
@@ -63,6 +76,11 @@ public class Vocab : CustomStringConvertible
         get {
             return "\(triplets.count) triplets"
         }
+    }
+    
+    func save()
+    {
+        write( writeString: makeContents() )
     }
     
     public func read()
