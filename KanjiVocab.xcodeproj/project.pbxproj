@@ -12,6 +12,8 @@
 		E881E4631E1FF00B0047AC86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E881E4611E1FF00B0047AC86 /* Main.storyboard */; };
 		E881E4651E1FF00B0047AC86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E881E4641E1FF00B0047AC86 /* Assets.xcassets */; };
 		E881E4681E1FF00B0047AC86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E881E4661E1FF00B0047AC86 /* LaunchScreen.storyboard */; };
+		E881E4701E1FF1E10047AC86 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E881E46F1E1FF1E10047AC86 /* EditVC.swift */; };
+		E881E4721E1FF6920047AC86 /* Vocab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E881E4711E1FF6920047AC86 /* Vocab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		E881E4641E1FF00B0047AC86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E881E4671E1FF00B0047AC86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E881E4691E1FF00B0047AC86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E881E46F1E1FF1E10047AC86 /* EditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditVC.swift; sourceTree = "<group>"; };
+		E881E4711E1FF6920047AC86 /* Vocab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vocab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				E881E4641E1FF00B0047AC86 /* Assets.xcassets */,
 				E881E4661E1FF00B0047AC86 /* LaunchScreen.storyboard */,
 				E881E4691E1FF00B0047AC86 /* Info.plist */,
+				E881E46F1E1FF1E10047AC86 /* EditVC.swift */,
+				E881E4711E1FF6920047AC86 /* Vocab.swift */,
 			);
 			path = KanjiVocab;
 			sourceTree = "<group>";
@@ -96,6 +102,7 @@
 				TargetAttributes = {
 					E881E4591E1FF00A0047AC86 = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = 4RWKM5E87W;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -137,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E881E4601E1FF00B0047AC86 /* ViewController.swift in Sources */,
+				E881E4721E1FF6920047AC86 /* Vocab.swift in Sources */,
+				E881E4701E1FF1E10047AC86 /* EditVC.swift in Sources */,
 				E881E45E1E1FF00B0047AC86 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +269,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4RWKM5E87W;
 				INFOPLIST_FILE = KanjiVocab/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Whitespace.KanjiVocab;
@@ -272,6 +282,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4RWKM5E87W;
 				INFOPLIST_FILE = KanjiVocab/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Whitespace.KanjiVocab;
