@@ -53,9 +53,11 @@ public class Vocab : CustomStringConvertible
     {
         let t = Triplet(kanji:kanji, hiragana: hiragana, english:english )
         triplets.append(t)
+        write( writeString: makeContents() )
+    }
+    public func makeContents() -> String {
         let lines = triplets.map { $0.makeString() }
-        let writeString = lines.joined(separator: "\n")
-        write( writeString: writeString )
+        return lines.joined(separator: "\n")
     }
     public var description: String {
         get {

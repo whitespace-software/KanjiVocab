@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
     var triplet : Triplet?
     var indexes : [Int] = []
@@ -21,6 +22,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         title = "Kanji Vocab"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.clickAdd) )
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.clickShare))
         print( Vocab.sharedInstance )
         doShuffle()
     }
@@ -42,6 +44,34 @@ class ViewController: UIViewController {
             btnEnglish.setTitle("English", for: .normal)
         }
     }
+    
+    func clickShare() {
+        let text = Vocab.sharedInstance.makeContents()
+        sendEmail(text: text)
+    }
+    
+    func sendEmail(text: String) {
+        if MFMailComposeViewController.canSendMail() {
+            let df = DateFormatter()
+            df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setSubject("Kanji Vocab at " + df.string(from: Date() ) )
+            mail.setMessageBody(text, isHTML: false)
+            
+            present(mail, animated: true, completion: nil)
+        } else {
+            UIFuncs.showMessage(self, "Error", "Failed to send e-mail")
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+//    private func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+//        controller.dismiss(animated: true, completion: nil)
+//    }
 
     @IBAction func clickEnglish(_ sender: Any) {
         if let t = triplet {

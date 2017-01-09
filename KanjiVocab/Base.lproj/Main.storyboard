@@ -28,16 +28,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0r-mg-Efz">
-                                <rect key="frame" x="16" y="160" width="165.5" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Hiragana"/>
-                                <connections>
-                                    <action selector="clickHiragana:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Emh-wn-Skd"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZY-bX-4HR">
-                                <rect key="frame" x="193.5" y="160" width="165.5" height="41"/>
+                                <rect key="frame" x="16" y="213" width="343" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="English"/>
                                 <connections>
@@ -58,23 +50,31 @@
                                     <action selector="clickNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3gG-gz-J4e"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0r-mg-Efz">
+                                <rect key="frame" x="16" y="160" width="343" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Hiragana"/>
+                                <connections>
+                                    <action selector="clickHiragana:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Emh-wn-Skd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="HZY-bX-4HR" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="0Fb-1E-glP"/>
-                            <constraint firstItem="HZY-bX-4HR" firstAttribute="leading" secondItem="p0r-mg-Efz" secondAttribute="trailing" constant="12" id="5Eo-pw-RHd"/>
                             <constraint firstItem="w66-hk-UFb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5zz-N1-k7F"/>
-                            <constraint firstItem="HZY-bX-4HR" firstAttribute="width" secondItem="p0r-mg-Efz" secondAttribute="width" id="I2k-gn-Sj9"/>
+                            <constraint firstItem="p0r-mg-Efz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="FOo-YS-4y6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HZY-bX-4HR" secondAttribute="trailing" id="KSe-Ml-gd0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HZY-bX-4HR" secondAttribute="trailing" id="KZW-oH-HTC"/>
+                            <constraint firstItem="HZY-bX-4HR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Mbp-4y-hrX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gIH-ig-bZE" secondAttribute="trailing" id="NHz-BS-LqU"/>
+                            <constraint firstItem="p0r-mg-Efz" firstAttribute="top" secondItem="w66-hk-UFb" secondAttribute="bottom" constant="12" id="NVJ-kj-TaY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p0r-mg-Efz" secondAttribute="trailing" id="O16-Kf-sYY"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gIH-ig-bZE" secondAttribute="bottom" constant="12" id="PbK-qM-JhO"/>
                             <constraint firstItem="w66-hk-UFb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="12" id="VVw-w2-JV5"/>
-                            <constraint firstItem="p0r-mg-Efz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VxJ-GD-Udy"/>
+                            <constraint firstItem="HZY-bX-4HR" firstAttribute="top" secondItem="p0r-mg-Efz" secondAttribute="bottom" constant="12" id="WUG-ES-128"/>
                             <constraint firstAttribute="trailingMargin" secondItem="w66-hk-UFb" secondAttribute="trailing" id="eVJ-6F-5IF"/>
-                            <constraint firstItem="p0r-mg-Efz" firstAttribute="top" secondItem="w66-hk-UFb" secondAttribute="bottom" constant="12" id="fOQ-7c-MCH"/>
                             <constraint firstItem="uTO-zN-sMo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hV2-eh-KOJ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uTO-zN-sMo" secondAttribute="bottom" constant="12" id="mSv-Dw-4Oq"/>
-                            <constraint firstItem="HZY-bX-4HR" firstAttribute="top" secondItem="p0r-mg-Efz" secondAttribute="top" id="t5o-Pl-gK0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bId-03-RIN"/>
@@ -133,18 +133,18 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SXe-rL-s6E" id="Hfe-r7-WiO">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nr7-sp-oi2">
-                                                    <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UPM-5L-9it">
-                                                    <rect key="frame" x="284" y="11" width="44" height="21"/>
+                                                    <rect key="frame" x="284" y="12" width="44" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
