@@ -35,6 +35,9 @@ public class Triplet
         setRevise(onoff: !isRevise() )
     }
     func matches( searchText : String ) -> Bool {
+        if searchText.lowercased() == "revise" {
+            return isRevise()
+        }
         return kanji.contains( searchText ) || hiragana.contains( searchText ) || english.lowercased().contains( searchText.lowercased() )
     }
     static func parse( str : String ) -> Triplet?

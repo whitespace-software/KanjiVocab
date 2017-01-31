@@ -33,6 +33,8 @@ class TripleCell: UITableViewCell {
         lblKanji.text = triplet.kanji
         lblHiragana.text = triplet.hiragana
         lblEnglish.text = triplet.english
+
+        self.backgroundColor = triplet.isRevise() ? UIColor.yellow : UIColor.white
     }
     
 }
