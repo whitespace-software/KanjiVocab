@@ -22,7 +22,8 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Kanji Vocab"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.clickAdd) )
+        // navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.clickAdd) )
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(self.clickSearch) )
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.clickShare))
         print( Vocab.sharedInstance )
         doShuffle()
@@ -33,9 +34,9 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func clickAdd()
+    func clickSearch()
     {
-        EditVC.loadVC( sb: self.storyboard!, nc: self.navigationController! )
+        SearchTVC.loadVC( sb: self.storyboard!, nc: self.navigationController! )
     }
     
     @IBAction func clickRevise(_ sender: Any) {
@@ -138,7 +139,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         }
         let idx = indexes.remove(at: 0)
         triplet = Vocab.sharedInstance.triplets[ idx ]
-        print( idx, indexes, triplet?.makeString())
+        // print( idx, triplet?.makeString())
         showCurrent()
     }
 }

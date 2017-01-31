@@ -9,19 +9,6 @@
 import UIKit
 
 class EditVC: UIViewController, UITableViewDataSource {
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Vocab.sharedInstance.triplets.count
-    }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        let t = Vocab.sharedInstance.triplets.reversed()[ indexPath.row ]
-        // cell.detailTextLabel?.text = t.hiragana + " " + t.english
-        cell.textLabel?.text = t.kanji + " " + t.hiragana + " " + t.english
-        // cell.textLabel?.textColor = UIFuncs.getTextColor( revise: t.isRevise() )
-        cell.textLabel?.backgroundColor = UIFuncs.getBackgroundColor( revise: t.isRevise() )
-        return cell
-    }
 
     @IBOutlet weak var txtKanji: UITextField!
     @IBOutlet weak var txtHiragana: UITextField!
@@ -41,7 +28,16 @@ class EditVC: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let cellID = TripleCell.getReuseIdentifier()
+        let nib = UINib(nibName: cellID, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: cellID)
+        
+        tableView.estimatedRowHeight = 44
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        //tableView.separatorStyle = .none
+        
         title = "Edit"
         tableView.dataSource = self
         txtKanji.addTarget(self, action: #selector(self.changedKanji), for: .editingChanged)
@@ -52,6 +48,27 @@ class EditVC: UIViewController, UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
     
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Vocab.sharedInstance.triplets.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TripleCell.getReuseIdentifier(), for: indexPath) as! TripleCell
+        let triplet = Vocab.sharedInstance.triplets.reversed()[ indexPath.row ]
+        cell.display(triplet: triplet)
+        return cell
+    }
+    
+    /*
+        let cell = UITableViewCell()
+        let t = Vocab.sharedInstance.triplets.reversed()[ indexPath.row ]
+        // cell.detailTextLabel?.text = t.hiragana + " " + t.english
+        cell.textLabel?.text = t.kanji + " " + t.hiragana + " " + t.english
+        // cell.textLabel?.textColor = UIFuncs.getTextColor( revise: t.isRevise() )
+        cell.textLabel?.backgroundColor = UIFuncs.getBackgroundColor( revise: t.isRevise() )
+        return cell
+    }
+    */
     func changedKanji()
     {
         guard let val = txtKanji.text else {

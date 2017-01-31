@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TripleCell" id="KGk-i7-Jjw" customClass="TripleCell" customModule="KanjiVocab" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDr-Pz-K0j">
+                        <rect key="frame" x="270" y="0.0" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXp-LB-ezr">
+                        <rect key="frame" x="270" y="23" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDC-cw-dBi">
+                        <rect key="frame" x="8" y="8" width="151" height="28"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="aDr-Pz-K0j" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="9yB-yu-FfA"/>
+                    <constraint firstItem="HXp-LB-ezr" firstAttribute="top" secondItem="aDr-Pz-K0j" secondAttribute="bottom" constant="2" id="EYE-8H-kqy"/>
+                    <constraint firstItem="HXp-LB-ezr" firstAttribute="width" secondItem="wDC-cw-dBi" secondAttribute="width" id="Gk5-YZ-sdf"/>
+                    <constraint firstItem="HXp-LB-ezr" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="JSU-GF-gVt"/>
+                    <constraint firstAttribute="bottom" secondItem="HXp-LB-ezr" secondAttribute="bottom" id="Rko-fF-F8k"/>
+                    <constraint firstItem="aDr-Pz-K0j" firstAttribute="leading" secondItem="wDC-cw-dBi" secondAttribute="trailing" constant="2" id="T2L-Jk-TT4"/>
+                    <constraint firstItem="wDC-cw-dBi" firstAttribute="width" secondItem="aDr-Pz-K0j" secondAttribute="width" id="f9k-oY-uJO"/>
+                    <constraint firstItem="wDC-cw-dBi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="kuR-UO-A45"/>
+                    <constraint firstItem="wDC-cw-dBi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="mcj-ci-o8F"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="wDC-cw-dBi" secondAttribute="bottom" id="qYJ-pb-gbg"/>
+                    <constraint firstItem="aDr-Pz-K0j" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="v6O-T6-jyB" userLabel="Lbl Hiragana.top = top + 2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblEnglish" destination="HXp-LB-ezr" id="8KF-jJ-Pom"/>
+                <outlet property="lblHiragana" destination="aDr-Pz-K0j" id="LMb-7y-QzN"/>
+                <outlet property="lblKanji" destination="wDC-cw-dBi" id="RN1-Ay-5XV"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

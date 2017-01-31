@@ -8,48 +8,6 @@
 
 import Foundation
 
-public class Triplet
-{
-    var kanji : String
-    var hiragana : String
-    var english : String
-    var revise : String
-    
-    init(kanji : String,hiragana : String,english : String, revise : String = "")
-    {
-        self.kanji = kanji
-        self.hiragana = hiragana
-        self.english = english
-        self.revise = revise
-    }
-    func makeString() -> String {
-        return [ kanji, hiragana, english, revise ].joined(separator: "|")
-    }
-    func isRevise() -> Bool {
-        return revise == "Y"
-    }
-    func setRevise( onoff : Bool ) {
-        revise = onoff ? "Y" : ""
-    }
-    func toggleRevise() {
-        setRevise(onoff: !isRevise() )
-    }
-    static func parse( str : String ) -> Triplet?
-    {
-        let sgmts = str.components(separatedBy: "|")
-        if sgmts.count < 3 {
-            return nil
-        }
-        let kanji = sgmts[0].trimmingCharacters(in: .whitespaces)
-        let hiragana = sgmts[1].trimmingCharacters(in: .whitespaces)
-        let english = sgmts[2].trimmingCharacters(in: .whitespaces)
-        if kanji == "" || hiragana == "" || english == "" {
-            return nil
-        }
-        let revise = sgmts.count < 4 ? "" : sgmts[3].trimmingCharacters(in: .whitespaces)
-        return Triplet(kanji: kanji, hiragana: hiragana, english: english, revise : revise )
-    }
-}
 
 public class Vocab : CustomStringConvertible
 {
@@ -89,7 +47,7 @@ public class Vocab : CustomStringConvertible
         var readString = "" // Used to store the file contents
         do {
             readString = try String(contentsOf: fileURL )
-            print("File Text: \(readString)")
+            // print("File Text: \(readString)")
             let lines = readString.components(separatedBy: "\n")
             triplets = []
             for var line in lines {
@@ -109,7 +67,7 @@ public class Vocab : CustomStringConvertible
         let fileURL = getFileURL()
         do {
             try writeString.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
-            print( "\(writeString) written to \(fileURL)")
+            print( "\(fileURL) written")
         } catch let error as NSError {
             print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
         }
