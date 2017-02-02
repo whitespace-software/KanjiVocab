@@ -20,7 +20,7 @@ class SearchTVC: UITableViewController, UISearchResultsUpdating {
         
     }
     
-    var searchController : UISearchController?
+    var searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +36,11 @@ class SearchTVC: UITableViewController, UISearchResultsUpdating {
         
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
-        searchController = UISearchController(searchResultsController: nil)
-        searchController!.searchResultsUpdater = self
-        searchController!.dimsBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
         definesPresentationContext = true
-        tableView.tableHeaderView = searchController!.searchBar
+        tableView.tableHeaderView = searchController.searchBar
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,10 +56,8 @@ class SearchTVC: UITableViewController, UISearchResultsUpdating {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let searchController = self.searchController {
-            if searchController.isActive && searchController.searchBar.text != "" {
-                return filteredTriplets.count
-            }
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredTriplets.count
         }
         return Vocab.sharedInstance.triplets.count
     }
@@ -67,10 +65,8 @@ class SearchTVC: UITableViewController, UISearchResultsUpdating {
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TripleCell.getReuseIdentifier(), for: indexPath) as! TripleCell
         var triplet = Vocab.sharedInstance.triplets.reversed()[ indexPath.row ]
-        if let searchController = self.searchController {
-            if searchController.isActive && searchController.searchBar.text != "" {
-                triplet = filteredTriplets[indexPath.row]
-            }
+        if searchController.isActive && searchController.searchBar.text != "" {
+            triplet = filteredTriplets[indexPath.row]
         }
         cell.display(triplet: triplet)
         return cell
